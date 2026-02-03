@@ -1,4 +1,4 @@
-# 💸 App de Organização de Finanças Pessoais com Vibe Coding
+# 💸 App de Organização de Finanças Pessoais de App de loja de moda com Vibe Coding
 
 Aprenda a **criar soluções com IA** de forma criativa, guiando ferramentas como o **Copilot** e o **Lovable** com uma comunicação simples e natural. O foco é desenvolver o conceito de um **App de Organização de Finanças Pessoais**, mas, acima de tudo, aprender o **jeito Vibe de programar com IA**.
 
@@ -8,65 +8,207 @@ Aprenda a **criar soluções com IA** de forma criativa, guiando ferramentas com
 
 > Você mostra a vibe da sua ideia e a IA transforma em solução (ou em um caminho para ela).
 
+
 ## 🎯 Desafio
+Meu 1° project, aprendendo do zero.
 
-Problema: Muitas pessoas não conseguem manter um controle financeiro porque os aplicativos exigem muita entrada de dados manual, e a criação de orçamentos é vista como algo tedioso. 
+### 1. Meu script!
 
-Precisamos de uma solução que permita **controlar as finanças por meio de uma conversa simples**, com **agentes de IA** capazes de criar **planos de economia personalizados e automatizados**. Você deve utilizar as ideias de **Vibe Coding** e **MVP (Produto Mínimo Viável)** para desenvolver o **conceito de um aplicativo** que resolva o problema citado.
-
-> [!IMPORTANT]
-> Você **não precisa construir o código**! O foco está em **usar a IA como sua parceira criativa**, transformando boas ideias e prompts em conceitos funcionais que simulam um produto real.
-
-## 🪄 Etapas do Desafio
-
-### 1. Saber o que Pedir é a Chave! Otimize seus Prompts!
-
-Antes de pedir para a IA "criar um app", é importante definir com clareza o que você quer construir e por quê. Para isso, você vai criar um **PRD (Product Requirements Document)** simplificado, uma especificação que serve como _briefing_ para a IA entender sua ideia.
-
-Um bom PRD deve descrever o problema, quem será beneficiado, as principais funcionalidades e o que você espera que a IA entregue. Use o modelo abaixo como ponto de partida e adapte conforme o seu estilo:
 
 ```txt
 # Contexto
-Quero criar um aplicativo de Organização de Finanças Pessoais que funcione por meio de conversas com o usuário.  
-A ideia é facilitar o controle financeiro de forma simples e natural, sem formulários manuais ou planilhas complexas.
+Crie um aplicativo de gestão para loja de moda dinâmico, claro e responsivo, com versão web PWA e apps nativos iOS/Android, seguindo os requisitos abaixo.
 
-# Problema
-Muitas pessoas desistem de controlar seus gastos porque os apps atuais exigem muita entrada manual e pouca personalização.  
-Quero resolver isso com uma experiência de conversa e recomendações automáticas de economia.
+Resumo do produto
+Crie um sistema completo para gestão de loja de moda com módulos integrados: POS/Vendas, Fluxo de Caixa (Entradas/Saídas), Inventário & Compras, Agenda / Planner de Tarefas, Relatórios / BI, CRM robusto, Feedbacks de compras, e Gestão de Usuários e Permissões. Interface intuitiva, performance rápida, acessível e totalmente em Português (pt-BR).
 
-# Público-Alvo
-Pessoas que querem começar a organizar suas finanças de forma prática e sem complicação, principalmente iniciantes.
+Requisitos funcionais essenciais
 
-# Funcionalidades-Chave
-1. Registrar gastos via chat em linguagem natural.  
-2. Classificar automaticamente as transações.  
-3. Definir e acompanhar metas financeiras.  
-4. Receber dicas de economia do “Agente Financeiro”.  
-5. Visualizar relatórios simples e personalizados.
+Autenticação e Segurança
 
-# Entregável da IA
-Gerar um plano de MVP com as principais telas, recursos necessários e um esboço de validação inicial.  
-Usar tom educativo e linguagem acessível, em português.
+Login via Google Identity / OAuth2 com MFA obrigatório para todos os usuários.
+
+Perfis: User Master, Administrador, Operador, Cliente-Usuário; permissões isoladas por função.
+
+Logs de auditoria para ações críticas; criptografia em trânsito e em repouso; conformidade com LGPD.
+
+POS / Vendas
+
+Registrar vendas com itens, quantidade, descontos, impostos, formas de pagamento e emissão de recibo.
+
+Filtros por dia/semana/mês; devoluções e estornos; relatório por vendedor e por SKU.
+
+Integração opcional com leitores de cartão e gateways de pagamento brasileiros (ex.: PagSeguro, Pagar.me, Stripe BR).
+
+Fluxo de Caixa
+
+Lançamento manual e automático de entradas e saídas, categorização, conciliação e saldo diário.
+
+Relatórios de fluxo por período e exportação CSV/PDF.
+
+Inventário & Compras
+
+Cadastro de SKUs, variações (tamanho, cor), localização por loja/depósito.
+
+Controle de estoque em tempo real, alertas de reposição, histórico de movimentações.
+
+Módulo de pedidos de compra para manutenção e fornecedores, com status e aprovações.
+
+Agenda e Planner
+
+Calendário compartilhado com tarefas, atribuição a usuários, checklists diários, notificações push/e-mail.
+
+Visualização por dia/semana/mês e integração com eventos de vendas/promos.
+
+CRM
+
+Ficha completa do cliente: dados, histórico de compras, interações, tags, notas e segmentação.
+
+Automação básica: lembretes, follow-ups e campanhas (integração com e-mail e WhatsApp via API).
+
+Feedbacks de Compras
+
+Formulário pós-compra com rating e comentários; painel de análise de satisfação por produto e vendedor.
+
+Moderation workflow para respostas e ações corretivas.
+
+Relatórios e BI
+
+Dashboards interativos: vendas, top SKUs, margem, fluxo de caixa, satisfação do cliente.
+
+Filtros por período, loja, categoria; exportação e agendamento de relatórios.
+
+Requisitos não funcionais
+
+UX/UI: design limpo, componentes reutilizáveis, responsivo mobile-first, performance < 2s em ações críticas.
+
+Acessibilidade: compatível com WCAG AA.
+
+Internacionalização: pt-BR por padrão; possibilidade de adicionar outros idiomas.
+
+Escalabilidade: arquitetura com API REST/GraphQL, Postgres, Redis para cache; suporte a multi-loja/filiais.
+
+Backup e recuperação: políticas automáticas e testes de restore.
+
+Testes: cobertura de testes automatizados (unitários, integração, E2E) e testes de segurança.
+
+Integrações sugeridas
+
+Gateways de pagamento locais (PagSeguro, Pagar.me, Stripe).
+
+Emissão de NF-e (se aplicável) via provedores brasileiros.
+
+Integração com ERP/contabilidade via API.
+
+Serviços de e-mail e push (SendGrid, Firebase Cloud Messaging).
+
+Google Identity para autenticação e MFA.
+
+Fluxo de permissões e telas por perfil
+
+Perfil	Acesso principal	Abas principais
+User Master	Configurações globais	Configurações; Gestão de usuários; Logs
+Administrador	Gestão operacional	Relatórios; Compras; Estoque; CRM
+Operador	Atendimento e vendas	POS; Agenda; Feedbacks
+Cliente-Usuário	Acesso restrito	Perfil; Histórico de compras; Feedbacks
+Critérios de aceitação MVP
+
+Autenticação Google + MFA funcionando para todos os perfis.
+
+Registrar vendas no POS e visualizar relatórios por dia/semana/mês.
+
+Lançar entradas/saídas e visualizar saldo diário.
+
+Controle básico de estoque com alertas de reposição.
+
+Ficha de cliente com histórico e registro de feedbacks.
+
+Agenda com criação e atribuição de tarefas.
+
+Dashboards básicos exportáveis.
+
+Permissões por função implementadas e testadas.
+
+Deploy em ambiente de staging com testes automatizados e documentação de API.
+
+Entregáveis e roadmap sugerido
+
+Sprint 0: arquitetura, protótipos de telas (Figma), definição de APIs e integrações.
+
+Sprint 1: Autenticação (Google + MFA) e gestão de usuários; infraestrutura.
+
+Sprint 2: POS básico e fluxo de caixa.
+
+Sprint 3: Inventário e pedidos de compra.
+
+Sprint 4: CRM básico e feedbacks.
+
+Sprint 5: Agenda/Planner e dashboards.
+
+Sprint 6: Integrações, testes finais, documentação e deploy.
+
+Requisitos de design e tom
+
+Visual moderno, tipografia legível, cores neutras com destaque para ações primárias.
+
+Microinterações para confirmar ações (ex.: venda registrada, tarefa concluída).
+
+Mensagens de erro claras e orientações para recuperação.
+
+Observações finais para execução
+
+Fornecer protótipos de telas (desktop e mobile) e user flows antes do desenvolvimento.
+
+Entregar documentação técnica da API e manual de administração.
+
+Incluir plano de treinamento para administradores e operadores.
+
+Instrução final para Lovable
+Implemente o app conforme especificado, priorizando o MVP descrito nos critérios de aceitação. Forneça protótipos, backlog por sprint, estimativas de esforço em pontos e um plano de testes automatizados.
 ```
+<img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/4d71991a-1ae0-4964-bbbd-e3255efced58" />
+<img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/30baa5fb-7d64-4fb9-8b87-7db15021423f" />
+<img width="1919" height="919" alt="image" src="https://github.com/user-attachments/assets/3de652b8-26ae-4255-9b45-110d7ccbd04a" />
 
-Depois de preencher o modelo, use o Copilot Web para revisar e melhorar o seu prompt antes de ir ao Lovable. A ideia é lapidar o texto até que ele fique claro, direto e reflita exatamente a sua intenção.
+
+Link do Projeto: https://lovable.dev/projects/89a44eaf-ecd6-4cc6-900f-822db47f53d8
+
+
+Reflexão: 
+ Aprendi sobre criar prompts indicando de forma precisa e bem detalhada o que eu realmente quero que a IA crie para mim.
+Criar agentes para que eu possa simplificar e organizar minhas execuções de tarefas(Ou do cliente)
+A IA pode alucinar por isso sempre devo pedir para que ela faça uma nova analise das informações.
+
+DESAFIOS AO ONE PERSON BUSINESS:
+* Sobrecarga de funções
+* Gestão de tempo
+* Escalabilidade limitada
+* Manutenção de qualidade constante
+
+JORNADAS DO USÁRIO:
+
+*Entrada
+* Ações
+* Decisões
+* Saída
+
+O sistema criado pode falhar em dias ou em semanas, por isso, é necessário criar sistemas de monitoramentos e ficar analisando o sistema.
+MOTIVOS PELO QUAL AS AUTOMAÇÕES NÃO FUNCIONAM:
+1- Integrações
+2- Alucinação
+3- Necessidade de negócio
+RESUMINDO 3 TIPOS DE ERROS:
+1-Técnicos
+2- Alucinação
+3- Degradação progressiva
+
+''CONSISTÊNCIA
+é melhor que perfeição.''
+
 
 > [!TIP]
 > Pense no PRD/Prompt como “o briefing que a IA precisa para entender sua vibe”. Portanto, quanto mais claro e intencional for o texto, mais próximas do ideal serão as respostas da IA.
 
-### 2. Explorando o Lovable na Prática
-
-Com seu PRD pronto e revisado, é hora de colocar a IA em ação. Abra o Lovable, cole seu prompt completo e peça o plano inicial do MVP do seu aplicativo. Como o plano gratuito limita você a 5 interações por dia, seja estratégico:
-- Faça perguntas diretas e construtivas, como “crie o fluxo de telas com base nas funcionalidades listadas” ou “gere uma versão resumida do plano de MVP”;
-- Priorize clareza nas instruções para aproveitar ao máximo cada resposta;
-
-Durante essa etapa, você pode orientar a IA para três entregas principais:
-1. Agente Financeiro: defina o comportamento e o tom de voz de um consultor financeiro pessoal, alinhado ao público e objetivo do app.
-2. Fluxo de Telas: peça à IA para gerar o fluxo conceitual de telas com base nas funcionalidades descritas no PRD, simulando a interação por conversa.
-3. Plano de MVP: solicite um resumo das 5 funcionalidades principais, dos recursos necessários e um plano de validação inicial (como medir se o app cumpre seu propósito).
-
-> [!TIP]
-> Se preferir, você pode fazer tudo com o **Copilot**. O importante é exercitar a habilidade de transformar intenções em instruções claras e testar os limites da IA como parceira criativa.
 
 ### 3. Entregando o Desafio na DIO
 
